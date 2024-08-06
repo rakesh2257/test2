@@ -12,18 +12,29 @@
 					"name": "Teams"
 				},
 				{
+					"dataset": {
+						"referenceName": "SqlServerTable3",
+						"type": "DatasetReference"
+					},
 					"name": "Players"
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "union1"
+				}
+			],
 			"scriptLines": [
 				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table') ~> Teams",
 				"source(allowSchemaDrift: true,",
-				"     validateSchema: false) ~> Players"
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> Players",
+				"Teams union(byName: true)~> union1"
 			]
 		}
 	}

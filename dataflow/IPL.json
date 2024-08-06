@@ -20,11 +20,7 @@
 				}
 			],
 			"sinks": [],
-			"transformations": [
-				{
-					"name": "union1"
-				}
-			],
+			"transformations": [],
 			"scriptLines": [
 				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
@@ -33,8 +29,7 @@
 				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     format: 'table') ~> Players",
-				"Teams, Players union(byName: true)~> union1"
+				"     format: 'table') ~> Players"
 			]
 		}
 	}

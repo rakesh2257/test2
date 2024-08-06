@@ -73,7 +73,21 @@
 										"type": "DelimitedTextReadSettings"
 									}
 								},
-								"enableStaging": false
+								"sink": {
+									"type": "SqlServerSink",
+									"writeBehavior": "insert",
+									"sqlWriterUseTableLock": true,
+									"tableOption": "autoCreate"
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
 							},
 							"inputs": [
 								{
@@ -85,6 +99,12 @@
 											"type": "Expression"
 										}
 									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "SqlServerTable1",
+									"type": "DatasetReference"
 								}
 							]
 						}

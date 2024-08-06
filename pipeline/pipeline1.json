@@ -178,7 +178,7 @@
 				"userProperties": []
 			},
 			{
-				"name": "Python1",
+				"name": "Pyton Script data transform",
 				"type": "DatabricksSparkPython",
 				"dependsOn": [
 					{

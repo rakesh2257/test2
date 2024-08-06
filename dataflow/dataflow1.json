@@ -9,7 +9,10 @@
 						"referenceName": "SqlServerTable2",
 						"type": "DatasetReference"
 					},
-					"name": "IPL"
+					"name": "Teams"
+				},
+				{
+					"name": "Players"
 				}
 			],
 			"sinks": [],
@@ -18,7 +21,9 @@
 				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     format: 'table') ~> IPL"
+				"     format: 'table') ~> Teams",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false) ~> Players"
 			]
 		}
 	}

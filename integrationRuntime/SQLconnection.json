@@ -1,0 +1,6 @@
+{
+	"name": "SQLconnection",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}

@@ -1,0 +1,41 @@
+{
+	"name": "IPL",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "SqlServerTable2",
+						"type": "DatasetReference"
+					},
+					"name": "Teams"
+				},
+				{
+					"dataset": {
+						"referenceName": "SqlServerTable3",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "union1"
+				}
+			],
+			"scriptLines": [
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> Teams",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> source1",
+				"Teams union(byName: true)~> union1"
+			]
+		}
+	}
+}

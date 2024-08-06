@@ -13,13 +13,20 @@
 				},
 				{
 					"dataset": {
-						"referenceName": "SqlServerTable3",
+						"referenceName": "SqlServerTable2",
 						"type": "DatasetReference"
 					},
 					"name": "Players"
 				},
 				{
 					"name": "source1"
+				},
+				{
+					"dataset": {
+						"referenceName": "SqlServerTable2",
+						"type": "DatasetReference"
+					},
+					"name": "source2"
 				}
 			],
 			"sinks": [],
@@ -39,6 +46,10 @@
 				"     format: 'table') ~> Players",
 				"source(allowSchemaDrift: true,",
 				"     validateSchema: false) ~> source1",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> source2",
 				"Teams, Players union(byName: true)~> union1"
 			]
 		}

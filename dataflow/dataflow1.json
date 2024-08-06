@@ -17,6 +17,9 @@
 						"type": "DatasetReference"
 					},
 					"name": "Players"
+				},
+				{
+					"name": "source1"
 				}
 			],
 			"sinks": [],
@@ -34,6 +37,8 @@
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table') ~> Players",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false) ~> source1",
 				"Teams, Players union(byName: true)~> union1"
 			]
 		}

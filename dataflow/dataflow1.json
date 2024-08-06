@@ -34,7 +34,7 @@
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table') ~> Players",
-				"Teams union(byName: true)~> union1"
+				"Teams, Players union(byName: true)~> union1"
 			]
 		}
 	}

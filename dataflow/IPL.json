@@ -16,7 +16,7 @@
 						"referenceName": "SqlServerTable3",
 						"type": "DatasetReference"
 					},
-					"name": "source1"
+					"name": "Players"
 				}
 			],
 			"sinks": [],
@@ -33,8 +33,8 @@
 				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     format: 'table') ~> source1",
-				"Teams union(byName: true)~> union1"
+				"     format: 'table') ~> Players",
+				"Teams, Players union(byName: true)~> union1"
 			]
 		}
 	}
